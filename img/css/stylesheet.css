@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+*{
+    box-sizing: border-box; /* It helps when we use the padding and 
+                                makes the content consistent */
+
+    transition: all ease-in-out 250ms;
+}
+
+/* htm */
+body {
+    overflow-x: hidden; /*These 2 lines are used to hide the*/
+    overflow-y: auto;   /*x-axis scroll just incase they appear*/
+    margin: 0;
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+img{
+    max-width: 100%; /*Always define this when using images. So the max they can grow is till the 
+    size of their contianer and height is set to auto */
+    height: auto;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto; /*Stops text from touching the sides of the screen */
+    max-width: 80vh;
+
+}
+.clearfix::after, 
+section::after,
+footer::after
+ {
+    content: '';
+    display: block;
+    clear:both;
+}
+
+/* Colummn system 
+============================================================ */
+ [class^=col-]{
+     width: 100%;
+     margin-top: 1em;
+ }
+[class^=col-]:first-child{
+    margin-top: 0;
+}
+.col-1{
+    width: 33.333334%;
+    float: left;
+}
+
+
+
+@media (min-width: 40rem){
+    [class^=col-] { /*This means that "any class that starts with" col- will get the given attribute*/
+        float: left;
+        padding: 0 .5em; 
+    } 
+    [class^=col-]:first-child{  /*Assigning no space to to the first and last on either side through out the code*/
+        padding-left: 0;
+    }
+    [class^=col-]:last-child{
+        padding-right: 0;
+    }
+    .col-3{
+        width: 50%;
+    }
+    .col-1{
+        width: 16.6666%;
+    }
+}
+
+/* Typography Section 
+============================================================ */
+h1{
+    font-weight: 300;
+    font-size: 1.7rem;
+    /* padding: -4em 0; */
+}
+
+.title{
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    font-weight: 900;
+    margin-top: 0em;
+}
+
+.title span{
+    font-weight: 300;
+    display: block;
+    font-size: .6em;
+}
+
+.title-cta{
+    margin-bottom: 0 0 0.5em;
+}
+.unstyled-list{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+}
+
+@media(min-width: 60rem){
+    .title{
+        font-size: 5rem;
+    }
+}
+
+/* Typography Section-Buttons 
+============================================================ */
+.button{
+    display: inline-block; /*Important because the padding would not add to the height of all the things*/
+    font-size:1.15rem; /*correctly. This is the attribute after all the button exclusive  properties to make all things work*/ 
+    text-decoration: none;
+    text-transform:uppercase;
+    border-width: 2px;
+    border-style: solid;
+    padding: .5em 1.75em;
+}
+
+.button-accent{
+    color: #00ff6c;
+    border-color: #00ff6c;
+}
+
+.button-accent:hover,
+.button-accent:focus{
+    background: #00ff6c;
+    color: #232323;
+}
+
+@media (min-width: 60rem){
+    .button{
+        font-size: 1.5rem;
+    }
+}
+
+
+.button-small {
+    font-size:1rem
+}
+
+
+/* Header 
+============================================================ */
+header {
+    position: absolute;
+    /* left: 0;
+    right: 0;  A choice b/w using either LR ro width to expand the image. We  went ahead with
+     width attribute to expand the image */
+    width: 100%;
+    margin: 1em;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block; /*Makes the list items fall in an horizontal line instead*/
+    margin: 1em;           /*of showing them in the list*/
+}
+
+nav a{
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: .8rem;
+    padding: .75em;
+    color: #fff;
+}
+
+@media(min-width: 60rem ){
+    .logo{
+        float: left; /*Logo shifts to right after 60 rem size is exceeded*/
+    }
+    nav{
+        float: right; /*Nav bar items shifts to right after 60 rem size is exceeded*/
+    }
+}
+
+/* Home-Hero
+============================================================ */
+.home-hero{
+    background-image: url(../hero-bg.jpg);
+    padding: 10em 0;
+    color: #fff;
+    background-size: cover;
+    background-position: center;
+}
+
+@media (min-width: 60rem){
+    .home-hero{
+        height: 100vh;
+        padding-top: 35vh;
+    }
+}
+
+/* Home-About
+============================================================ */
+.home-about-textbox{
+    background-color: #232323;
+    padding: 4em;
+    width: 100vw;
+    /* margin-left: -2.5%; */
+    outline: 2px solid #00ff6c; /*Helps for the box creation*/
+    outline-offset: -2.5em; /*Having a negative value makes it go inwards and become a box like structure*/
+    color:#fff;
+    position: relative;
+}
+
+.home-about-textbox h1{
+    font-size: 1.6rem;
+    color:#00ff6c;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top:.75em;
+    background:#232323;
+    padding: 0 0.8em ;
+    margin-top: 0.5rem;
+}
+@media (min-width: 15rem) {
+    h1{
+        font-size: 2rem;
+    }
+    .home-about-textbox h1{
+        top: .6em;
+        padding: 0 .25em;
+    }
+}
+
+@media (min-width: 60rem) {
+    h1{
+        font-size:3em;
+    }
+    .home-about{
+        background-image: url(../who-we-are.jpg); ;
+        width: 150vh; 
+        background-repeat: no-repeat ;
+        padding: 10em;
+        margin-left: -13em; /*Picture has 10em padding hence -13em margin left to pull it back to center*/ 
+        background-size: center;
+    }
+
+
+    }
+    .home-about-textbox{
+        width:70%;
+        margin-left: -23em;
+        background-color: #232323;
+        padding: 6em;
+        max-width: 40vh;
+        text-align: left;
+        top: -16em;
+        box-shadow: 0 0 4em 0 rgba(0, 0, 0,.8);
+
+    }
+    .home-about-textbox h1{
+        font-size: 2.3rem;
+        top: .8em;
+        padding: 0 .25em;
+        margin: -0.3em 0;
+        /* transform: translateX(0); */
+    }
+    
+
+    /* Portfolio
+============================================================ */
+@media (min-width: 30rem){
+    .port-item{
+        width:50%;
+        float: left; /*To make the pics stack together by making them fall on the left*/
+    }
+}
+
+@media (min-width: 60rem){
+    .port-item{
+        margin-right: 0em;
+        width: 33.33%; /*Float left will work due to the above float property*/
+        overflow: hidden; /*To hide Description tile fully and then allow it to appear using hover*/
+        float:center;
+}
+    .port-desc{
+        transform: translateY(150%);
+    }
+    .port-item:hover .port-desc{
+        transform: translateY(0%); /*To make Description visible*/
+    }
+}
+
+
+.portfolio{
+    margin: 3em 0 0 0;
+    border: 0px;
+}
+.port-item{
+    margin: 0em 0em;
+    position: relative; /*To move pics properly*/
+}
+.port-item img{
+    width: 100%;  /*Used these 3 lines (next 2 also) for picture to fill up the entire div. The image properties were being overwritten from the above CSS rules*/
+    height: 100%;
+    height: auto; 
+    background-size: contain; 
+    display: block;/*Removes the little space between the pics*/
+    border: 0px;
+}
+.port-desc{
+    background-position: center;
+    width: 100%;
+    position: absolute;
+    z-index: 100; /*This made the button to float above the the pictures.*/
+    bottom: 1em;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0,.4); /*This is adding the box shadow to contain the title and the details*/
+    padding-bottom: 1em ;
+}
+.port-desc p{
+    margin: 1em;
+}
+
+
+
+
+    /* CTA (call to action)
+============================================================ */
+.cta{
+    background-color: #00ff6c;
+    padding: 3em 0;
+}
+.button-dark{
+        color: #232323;
+        border-color: #232323
+}
+.button-dark:hover,
+.button-dark:focus{
+        border-color: #232323;
+        color: #00ff6c;
+        background: #232323;
+    }
+
+
+    /* Footer
+============================================================ */
+
+footer {
+    /* z-index: 1000; */
+    background-color:#232323 ;
+    color: #fff;
+    text-align: left;
+    margin-top: 0em;
+}
+@media (max-width: 40rem) {
+    footer .container {
+        margin: 1em 0;
+    }
+}
